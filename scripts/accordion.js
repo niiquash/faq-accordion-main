@@ -35,6 +35,19 @@ function toggleFAQButton(button) {
   }
 }
 
+function closeOpenFAQ() {
+  const openAnswer = document.querySelector(".js-faq-answer.show");
+  if (!openAnswer) {
+    return;
+  }
+
+  openAnswer.classList.remove("show");
+
+  const openItem = openAnswer.closest(".faq-list-item");
+  const openButton = openItem.querySelector(".js-faq-button");
+  openButton.querySelector("img").src = "assets/images/icon-plus.svg";
+}
+
 function toggleAnswerParagraph(button) {
   const faqItem = button.closest(".faq-list-item");
   const answer = faqItem.querySelector(".js-faq-answer");
@@ -46,7 +59,15 @@ const buttons = document.querySelectorAll(".js-faq-button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    toggleFAQButton(button);
-    toggleAnswerParagraph(button);
+    const faqItem = button.closest(".faq-list-item");
+    const answer = faqItem.querySelector(".js-faq-answer");
+    const isAlreadyOpen = answer.classList.contains("show");
+
+    closeOpenFAQ();
+
+    if (!isAlreadyOpen) {
+      toggleFAQButton(button);
+      toggleAnswerParagraph(button);
+    }
   });
 });
