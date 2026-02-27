@@ -6,23 +6,22 @@
 
 body {
   font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  background-color: #f8eeff;
+}
+
+.background-img {
   background-image: url("../assets/images/background-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-  background-color: #f8eeff;
-  padding: 24px;
-  position: relative;
+  height: 232px;
+  margin-bottom: -100px;
 }
 
 /* FAQ Card */
 .faq-card {
   background-color: white;
   padding: 24px;
-  position: absolute;
-  top: 131px;
-  left: 0;
-  right: 0;
   margin: 0 24px;
   border-radius: 8px;
 }
@@ -92,3 +91,5 @@ body {
 .js-faq-answer.show {
   display: block;
 }
+
+/* Media queries */
